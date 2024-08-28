@@ -1,0 +1,19 @@
+{
+  "name": "blog-demo",
+  "version": "1.0.0",
+  "description": "Node demo with MongoDB connection",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "EJS",
+    "Environment variables"
+  ],
+  "author": "iCeeqSolutions",
+  "license": "ISC"
+}

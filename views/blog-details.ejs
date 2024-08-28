@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <div class="contentContainer">
+      <%- include("./partials/nav.ejs") %>
+      <div class="blogs content">
+        <h2>Selected Blog</h2>
+        <div class="home">
+          <div class="blogList">
+            <div class="blogPreview">
+              <h2><%= blog.title %></h2>
+              <p><%= blog.blogText %></p>
+              <div class="deleteContainer">
+                <a data-deleteblog="<%= blog._id %>" class="delete"
+                  >Delete Blog</a
+                >
+                <a href="/blogs" class="goBack">Back to List</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%- include("./partials/footer.ejs") %>
+    </div>
+
+    <script>
+      const deleteItem = document.querySelector("a.delete");
+      deleteItem.addEventListener("click", (evt) => {
+        const endpoint = `/blogs/${deleteItem.dataset.deleteblog}`;
+        console.log(endpoint);
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => {
+            console.error("Encountered the following error: " + err);
+          });
+      });
+    </script>
+  </body>
+</html>

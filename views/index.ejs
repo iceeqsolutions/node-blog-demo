@@ -9,8 +9,12 @@
           <div class="blogList">
             <div class="blogPreview">
               <% if(blogs.length) { %> <% blogs.forEach(blog => {%>
-                <h2><%= blog.title %></h2>
-                <p><%= `"${blog.blogText.slice(0, 100)}..."` %></p>
+                <div class="selectedBlog">
+                  <a href="/blogs/<%= blog._id %>">
+                    <h2><%= blog.title %></h2>
+                    <p><%= `"${blog.blogText.slice(0, 100)}..."` %></p>
+                  </a>
+                </div>
                 <% })%> <% } else {%>
                 <p>No blogs available yet...</p>
                 <% }%>

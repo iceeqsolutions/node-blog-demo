@@ -44,7 +44,7 @@ app.get("/about", (req, res) => {
 });
 
 // Test MongoDB routes
-app.get("/blogs", (req, res) => {
+app.get("/blogs", (_req, res) => {
     Blog.find()
       .then((data) => {
         res.render("index", { title: "Home", blogs: data });
@@ -56,39 +56,47 @@ app.get("/blogs", (req, res) => {
 
 app.post("/blogs", (req, res) => {
     // Test the POST request
-    console.log(req.body);
+    /* console.log(req.body); */
     const blog = new Blog(req.body);
   
     blog
       .save()
       .then((data) => {
-        res.redirect("/");
+        res.redirect("/blogs");
       })
       .catch((err) => {
         console.error("Encountered the following error: " + err);
       });
 });
 
-app.get("/blogs/create", (req, res) => {
-    const blog = new Blog({
-      title: "Test Blog",
-      author: "John Doe",
-      blogText:
-        "My first blog.",
-    });
-  
-    blog
-      .save()
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+app.get("/blogs/create", (_req, res) => {
+    res.render("create", { title: "Add Blog" });
 });
 
+app.get("/blogs/:id", (req, res) => {
+    const id = req.params.id;
+    Blog.findById(id)
+      .then((data) => {
+        res.render("blog-details", { title: "Blog Details", blog: data });
+      })
+      .catch((err) => {
+        console.error("Encountered the following error: " + err);
+      });
+  });
+  
+  app.delete("/blogs/:id", (req, res) => {
+    const id = req.params.id;
+    Blog.findByIdAndDelete(id)
+      .then((data) => {
+        res.json({ redirect: "/blogs" });
+      })
+      .catch((err) => {
+        console.error("Encountered the following error: " + err);
+      });
+  });
+
 // Test redirect
-app.get("/about-us", (req, res) => {
+app.get("/about-us", (_req, res) => {
   res.redirect("/about");
 });
 

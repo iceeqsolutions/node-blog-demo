@@ -154,6 +154,39 @@ li {
     color: #535bf2;
 }
 
+/* INDIVIDUAL BLOG DETAILS */
+.deleteContainer {
+    height: 50px;
+    margin-bottom: 20px;
+}
+.delete {
+    padding: 5px 10px;
+    color: darkmagenta;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 10px rgb(105, 34, 34);
+    margin: 0 10px;
+}
+.goBack {
+    padding: 5px 10px;
+    color: #535bf2;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 10px rgb(15, 10, 176);
+    margin: 0 10px;
+}
+.delete:hover {
+    color: #fff;
+    background-color: red;
+    box-shadow: 1px 1px 20px red;
+    cursor: pointer;
+}
+.goBack:hover {
+    color: darkmagenta;
+    box-shadow: 1px 1px 20px darkmagenta;
+    cursor: pointer;
+}
+
 /* CREATE BLOG */
 .blogTemplate,
 form {

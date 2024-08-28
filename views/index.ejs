@@ -10,7 +10,7 @@
             <div class="blogPreview">
               <% if(blogs.length) { %> <% blogs.forEach(blog => {%>
                 <h2><%= blog.title %></h2>
-                <p><%= blog.blogText %></p>
+                <p><%= `"${blog.blogText.slice(0, 100)}..."` %></p>
                 <% })%> <% } else {%>
                 <p>No blogs available yet...</p>
                 <% }%>

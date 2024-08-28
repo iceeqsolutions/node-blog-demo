@@ -28,6 +28,9 @@ const blogs = [
 // Specify which view engine to use
 app.set("view engine", "ejs");
 
+// Register public folder
+app.use(express.static("public"));
+
 app.listen(3000);
 
 // Render views
@@ -49,6 +52,6 @@ app.get("/about-us", (req, res) => {
 });
 
 // 404
-app.use((req, res) => {
+app.use((_req, res) => {
     res.status(404).render("404", { title: "404" });
 });

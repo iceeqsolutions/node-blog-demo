@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import Blog from "./models/blog.js";
 
 dotenv.config();
 mongoose.set("strictQuery", false);
@@ -20,34 +21,11 @@ const start = async () => {
       console.log("App listening to port " + PORT);
     });
   } catch (err) {
-    console.log(err.message);
+    console.error("Error connecting to MongoDB", err);
   }
 };
 
 start();
-
-// Temporary blog data
-
-const blogs = [
-    {
-      id: 1,
-      title: "Blog 1",
-      blogText:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sunt quo possimus est commodi doloremque ipsam laudantium suscipit, dolore dignissimos optio, minima quas aperiam cum omnis tenetur qui quidem reiciendis. Rerum ipsa nobis repellat porro maxime quis quam recusandae est.",
-    },
-    {
-      id: 2,
-      title: "Blog 2",
-      blogText:
-        "Lorem ipsum est commodi doloremque ipsam laudantium suscipit, dolore dignissimos optio, minima quas aperiam cum omnis tenetur qui quidem reiciendis.",
-    },
-    {
-      id: 3,
-      title: "Blog 3",
-      blogText:
-        "Lorem quo possimus est commodi doloremque ipsam laudantium suscipit, dolore dignissimos optio, minima quas aperiam cum omnis tenetur qui quidem reiciendis. Rerum ipsa nobis repellat porro maxime quis quam recusandae est.",
-    },
-];
 
 // Specify which view engine to use
 app.set("view engine", "ejs");
@@ -64,8 +42,23 @@ app.get("/about", (req, res) => {
     res.render("about", { title: "About" });
 });
 
+// Test MongoDB routes
 app.get("/blogs/create", (req, res) => {
-    res.render("create", { title: "Add Blog" });
+    const blog = new Blog({
+      title: "Test Blog",
+      author: "John Doe",
+      blogText:
+        "My first blog.",
+    });
+  
+    blog
+      .save()
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 });
 
 // Test redirect

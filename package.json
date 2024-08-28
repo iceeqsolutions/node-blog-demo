@@ -2,6 +2,7 @@
   "name": "blog-demo",
   "version": "1.0.0",
   "description": "Node demo with MongoDB connection",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "dev": "node --watch app"
@@ -15,5 +16,9 @@
     "Environment variables"
   ],
   "author": "iCeeqSolutions",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
 }

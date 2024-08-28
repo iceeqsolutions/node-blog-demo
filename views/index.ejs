@@ -5,12 +5,18 @@
     <div class="contentContainer">
       <%- include("./partials/nav.ejs") %>
       <div class="blogs content">
-        <% if(blogs.length) { %> <% blogs.forEach(blog => {%>
-          <h2><%= blog.title %></h2>
-          <p><%= blog.blogText %></p>
-          <% })%> <% } else {%>
-          <p>No blogs available yet...</p>
-          <% }%>
+        <div class="home">
+          <div class="blogList">
+            <div class="blogPreview">
+              <% if(blogs.length) { %> <% blogs.forEach(blog => {%>
+                <h2><%= blog.title %></h2>
+                <p><%= blog.blogText %></p>
+                <% })%> <% } else {%>
+                <p>No blogs available yet...</p>
+                <% }%>
+            </div>
+          </div>
+        </div>
       </div>
       <%- include("./partials/footer.ejs") %>
     </div> 

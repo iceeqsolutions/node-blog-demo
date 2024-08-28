@@ -3,29 +3,25 @@
     src: url("/WesternCowboys.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
-  }
-  
-  @font-face {
+}
+@font-face {
     font-family: "LemonTuesday";
     src: url("/LemonTuesday.otf") format("opentype");
     font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
+font-style: normal;
+}
+@font-face {
     font-family: "DarlothesGrunge";
     src: url("/DarlothesGrunge.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
-  }
-  
-  * {
+}
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  :root {
+}
+:root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -36,9 +32,8 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
+}
+body {
     margin: 0;
     display: flex;
     place-items: center;
@@ -47,14 +42,37 @@
     background-image: url("/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-  }
-
-  .contentContainer {
+}
+.home,
+.aboutUs {
+  padding: 30px 0;
+}
+.contentContainer {
     max-width: 100vw;
     width: 100%;
-  } 
-
-  p,
+}
+.blogList,
+.aboutUsTextContent,
+.blogTemplate {
+  width: 80vw;
+  max-width: 800px;
+  margin: 370px auto 50px;
+  border-radius: 20px;
+  background-color: rgba(86, 86, 86, 0.7);
+  box-shadow: 1px 1px 10px rgba(200, 12, 200, 0.7);
+}
+h1 {
+    font-family: "WesternCowboys";
+    z-index: 2;
+    margin-left: 5vw;
+    font-size: 5em;
+    color: darkmagenta;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9);
+}
+h2 {
+    padding: 30px 0;
+}
+p,
 form > label {
   color: #fff;
 }
@@ -86,18 +104,63 @@ nav {
   border-top: 5px solid #ddd;
   border-bottom: 5px solid #bbb;
 }
-
+.navTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.samContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 100px;
+    font-family: "LemonTuesday";
+    margin-top: 20px;
+}  
+.samWords {
+    display: flex;
+    flex-direction: column;
+}  
+.samWords h2,
+.samWords h4 {
+    text-shadow: 2px 2px 3px rgba(145, 8, 163, 0.9);
+    padding: 5px 0 5px 20px;
+}  
+.samL {
+    height: 100px;
+}
 li {
     list-style-type: disc;
     font-size: 0.8em;
+}  
+.links {
+    display: flex;
+    align-self: center;
+    margin-bottom: 10px;
+}  
+.links ul {
+    display: flex;
+    z-index: 2;
+    justify-content: space-between;
+    align-self: center;
+    width: 300px;
+}  
+.links a {
+    font-family: "WesternCowboys";
+    font-size: 28px;
+    color: orange;
+}  
+.links a:hover {
+    color: #535bf2;
 }
 
 /* CREATE BLOG */
+.blogTemplate,
 form {
-    display: flex;
-    flex-direction: column;
-    width: 60vw;
-    max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  max-width: 600px;
 }
 form > input {
     height: 2em;
@@ -105,27 +168,56 @@ form > input {
     max-width: 100%;
     margin: 10px auto 20px;
     padding: 5px 10px;
-}
+}  
 form > textarea {
     height: 250px;
     width: 560px;
     max-width: 100%;
     margin: 10px auto 30px;
     padding: 5px 10px;
-}
+}  
 form > button {
     border-radius: 8px;
     padding: 5px;
     max-width: 150px;
     margin: 20px auto 50px;
     box-shadow: 1px 1px 10px rgba(200, 12, 200, 0.7);
-}
+}  
 form > button:hover {
     color: #fff;
     background-color: darkmagenta;
 }
 
+/* ABOUT */
+.aboutUsText {
+    width: 100%;
+    padding: 30px 0;
+}
+.aboutUsText > h2 {
+  font-family: "DarlothesGrunge";
+  color: #fff;
+  padding-top: 20px;
+}
+.aboutUsText > p {
+    text-align: start;
+    padding: 20px;
+}
+.aboutUsText p:last-of-type {
+    padding: 15px 20px 40px 20px;
+}
 /* FOOTER */
+.ics-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(86, 86, 86, 0.9);
+    border-radius: 7px;
+    padding: 5px 5px 0 10px;
+}
 a > img.icsLogo {
     height: 25px;
 }

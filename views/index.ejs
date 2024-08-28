@@ -4,8 +4,12 @@
   <body>
     <%- include("./partials/nav.ejs") %>
     <div class="blogs content">
-      <h2>All Blogs</h2>
-      <!--This is where we'll add the blogs using a "forEach" -statement-->
+      <% if(blogs.length) { %> <% blogs.forEach(blog => {%>
+        <h2><%= blog.title %></h2>
+        <p><%= blog.blogText %></p>
+        <% })%> <% } else {%>
+        <p>No blogs available yet...</p>
+        <% }%>
     </div>
     <%- include("./partials/footer.ejs") %> 
   </body>

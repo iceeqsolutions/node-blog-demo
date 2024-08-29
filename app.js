@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import Blog from "./models/blog.js";
+import blogRouter from "./routes/blogRoutes.js";
 
 dotenv.config();
 mongoose.set("strictQuery", false);
@@ -35,70 +35,21 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // Render views
-/* app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
     res.render("index", { title: "Home", blogs });
-}); */
+});
 
-app.get("/about", (req, res) => {
+app.get("/about", (_req, res) => {
     res.render("about", { title: "About" });
 });
-
-// Test MongoDB routes
-app.get("/blogs", (_req, res) => {
-    Blog.find()
-      .then((data) => {
-        res.render("index", { title: "Home", blogs: data });
-      })
-      .catch((err) => {
-        console.error("Encountered the following error: " + err);
-      });
-});
-
-app.post("/blogs", (req, res) => {
-    // Test the POST request
-    /* console.log(req.body); */
-    const blog = new Blog(req.body);
-  
-    blog
-      .save()
-      .then((data) => {
-        res.redirect("/blogs");
-      })
-      .catch((err) => {
-        console.error("Encountered the following error: " + err);
-      });
-});
-
-app.get("/blogs/create", (_req, res) => {
-    res.render("create", { title: "Add Blog" });
-});
-
-app.get("/blogs/:id", (req, res) => {
-    const id = req.params.id;
-    Blog.findById(id)
-      .then((data) => {
-        res.render("blog-details", { title: "Blog Details", blog: data });
-      })
-      .catch((err) => {
-        console.error("Encountered the following error: " + err);
-      });
-  });
-  
-  app.delete("/blogs/:id", (req, res) => {
-    const id = req.params.id;
-    Blog.findByIdAndDelete(id)
-      .then((data) => {
-        res.json({ redirect: "/blogs" });
-      })
-      .catch((err) => {
-        console.error("Encountered the following error: " + err);
-      });
-  });
 
 // Test redirect
 app.get("/about-us", (_req, res) => {
   res.redirect("/about");
 });
+
+// Blog routes
+app.use(blogRouter);
 
 // 404
 app.use((_req, res) => {

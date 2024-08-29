@@ -12,7 +12,8 @@
                 <div class="selectedBlog">
                   <a href="/blogs/<%= blog._id %>">
                     <h2><%= blog.title %></h2>
-                    <p><%= `"${blog.blogText.slice(0, 100)}..."` %></p>
+                    <h6><%= blog.author %></h6>
+                    <p><%= `"${blog.blogText.slice(0, 80)}..."` %></p>
                   </a>
                 </div>
                 <% })%> <% } else {%>

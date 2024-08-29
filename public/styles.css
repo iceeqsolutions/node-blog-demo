@@ -61,6 +61,12 @@ body {
   background-color: rgba(86, 86, 86, 0.7);
   box-shadow: 1px 1px 10px rgba(200, 12, 200, 0.7);
 }
+.blogPreview h2,
+.aboutUsText h2,
+.blogTemplate h2 {
+  font-family: "DarlothesGrunge";
+  color: #fff;
+}
 h1 {
     font-family: "WesternCowboys";
     z-index: 2;
@@ -76,13 +82,13 @@ p,
 form > label {
   color: #fff;
 }
+a > h2 {
+    padding: 20px 0 0 0;
+}
 a {
   font-weight: 700;
   color: #fff;
   text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 /* NAV SPECIFIC */
@@ -152,6 +158,29 @@ li {
 }  
 .links a:hover {
     color: #535bf2;
+}
+
+/* HOME PAGE - BLOG PREVIEW */
+.blogPreview {
+    padding: 10px 5px;
+}
+blogPreview > a > h2 {
+    padding-top: 20px;
+}
+.blogPreview > p {
+    padding: 5px 20px;
+}
+.blogPreview p:last-of-type {
+    padding: 15px 20px 40px 20px;
+}
+.selectedBlog {
+    background-color: rgba(66, 65, 65, 0.9);
+    box-shadow: 0px 2px 10px #fff;
+    border-radius: 20px;
+    margin: 25px 8px;
+}
+.selectedBlog:hover {
+    background-color: rgba(108, 0, 216, 0.9);
 }
 
 /* INDIVIDUAL BLOG DETAILS */
@@ -238,6 +267,11 @@ form > button:hover {
 .aboutUsText p:last-of-type {
     padding: 15px 20px 40px 20px;
 }
+.movieImg {
+    width: 90%;
+    max-width: 600px;
+}
+
 /* FOOTER */
 .ics-container {
     display: flex;
@@ -258,3 +292,16 @@ a > img.icsLogo {
     font-style: italic;
     align-self: self-start;
 }
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+    h1 {
+      font-size: 4em;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 3.5em;
+    }
+  }

@@ -5,11 +5,11 @@
     <div class="contentContainer">
       <%- include("./partials/nav.ejs") %>
       <div class="blogs content">
-        <h2>Selected Blog</h2>
         <div class="home">
           <div class="blogList">
             <div class="blogPreview">
               <h2><%= blog.title %></h2>
+              <h6><%= blog.author %></h6>
               <p><%= blog.blogText %></p>
               <div class="deleteContainer">
                 <a data-deleteblog="<%= blog._id %>" class="delete"

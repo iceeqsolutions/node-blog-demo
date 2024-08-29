@@ -3,7 +3,7 @@
 import Blog from "../models/blog.js";
 
 const blog_index = (_req, res) => {
-  Blog.find()
+  Blog.find().sort({ createdAt: -1 })
     .then((data) => {
       res.render("index", { title: "Home", blogs: data });
     })

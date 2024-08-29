@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Render views
 app.get("/", (_req, res) => {
-    res.render("index", { title: "Home", blogs });
+  res.redirect("/blogs");
 });
 
 app.get("/about", (_req, res) => {
@@ -49,7 +49,7 @@ app.get("/about-us", (_req, res) => {
 });
 
 // Blog routes
-app.use(blogRouter);
+app.use("/blogs", blogRouter);
 
 // 404
 app.use((_req, res) => {

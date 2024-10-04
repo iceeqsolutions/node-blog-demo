@@ -14,7 +14,12 @@ In MongoDB, we've used triggers to schedule database resets. This way any insert
 
 ## Demo
 
-👁️ [Live Demo](https://iceeqsolutions-node-blog-demo.adaptable.app/blogs)
+👁️ To test out the app, you need to:
+1) Clone the repo
+2) Copy the data.json content and upload it to your own MongoDB cluster
+3) Add the necessary settings to your .env -file (see .env_EXAMPLE -file)
+4) Launch the app
+
 
 ## Built with
 
